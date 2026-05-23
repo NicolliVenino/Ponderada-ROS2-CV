@@ -1,3 +1,3 @@
 # Ponderada-ROS2-CV
 
-[Acesse aqui o vídeo de navegação da plataforma](https://drive.google.com/file/d/1Jhu3NslMZlJEHS79dYhMepjYrAB0_SMn/view?usp=sharing)
+[Acesse aqui o vídeo explicando o desenvolvimento](https://drive.google.com/file/d/1Jhu3NslMZlJEHS79dYhMepjYrAB0_SMn/view?usp=sharing)
