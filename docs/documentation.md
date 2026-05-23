@@ -21,11 +21,15 @@
 ### **4. Flood Fill**  
 **Justificativa:** Haja vista detalhes mais claros no interior do cachorro, a binarização supracitada marcou esses detalhes como 255 (branco). No entanto, esses detalhes estão isolados dentro do corpo do cachorro (não tocam as bordas da imagem). O Flood Fill, partindo do canto $(0,0)$, "escorre" apenas pelo fundo exterior contínuo. Dessa forma, tudo que ele conseguir visitar pertence ao cenário externo verdadeiro e o que ele não conseguir visitar (mesmo sendo branco) está dentro do objeto. Assim, isso serve para garantir que pegue, de fato, apenas o CONTORNO do cachorro, e não os detalhes interiores, como olhos e nariz.
 
+<br></br>
+
 <p align = "center">Figura 1 - Imagem com detalhes interiores - Sem binarização e sem Flood Fill  </p>
 <div align = "center">
   <img src = "./assets/dog_interior.png">
  <sup>Fonte autoral (2026).</sup>
  </div>
+
+<br></br>
 
  <p align = "center">Figura 2 - Imagem apenas do Contorno (conforme a demanda) - Com binarização e com Flood Fill  </p>
 <div align = "center">
@@ -33,9 +37,12 @@
  <sup>Fonte autoral (2026).</sup>
  </div>
 
+<br></br>
 
 ### **5. Extração e Potencialização do Contorno**  
 **Justificativa**: no processo de transformar o contorno do objeto em comando de velocidade e ângulo para a trajetória da tartaruga, a primeira imagem a baixo configurou desempenho baixo, haja vista que não foi possível mapear os pixels com precisão. Para isso, foi necessário potencializar o contorno, conforme a segunda imagem abaixo. 
+
+<br></br>
 
 <p align = "center">Figura 3 - Contorno Fino  </p>
 <div align = "center">
@@ -43,11 +50,15 @@
  <sup>Fonte autoral (2026).</sup>
  </div>
 
+<br></br>
+
 <p align = "center">Figura 4 - Contorno Potencializado </p>
 <div align = "center">
   <img src = "./assets/contorno_grosso.png">
  <sup>Fonte autoral (2026).</sup>
  </div>
+
+<br></br>
 
 Para maiores detalhes, vale analisar o código desenvolvido, no qual foi inserido comentários em primeira pessoa de forma muito sincera e didática, para ilustrar de forma realista a lógica pensada durante o desenvolvimento.. 
 
@@ -55,11 +66,15 @@ Para maiores detalhes, vale analisar o código desenvolvido, no qual foi inserid
 
 &nbsp; &nbsp; &nbsp; &nbsp;Antes de desenvolver a estratégia supracitada, analisei a diferença rápida entre várias técnicas e o desempenho está representada na imagem abaixo: 
 
+<br></br>
+
 <p align = "center">Figura 5 - Testes Iniciais </p>
 <div align = "center">
   <img src = "./assets/testes_cv.png">
  <sup>Fonte autoral (2026).</sup>
  </div>
+
+<br></br>
 
 &nbsp; &nbsp; &nbsp; &nbsp;Diante da análise, infere-se que apenas as técnicas acima não contemplam a demanda do projeto: extrair apenas o contorno do objeto. Isso pois, é notório que ruídos interiores ao cachorro ficaram expostos, como olhos e nariz. Por isso, justifica-se, mais uma vez, as técnicas de binarização e flood fill supracitadas.
 
@@ -73,6 +88,7 @@ Para maiores detalhes, vale analisar o código desenvolvido, no qual foi inserid
 
 &nbsp; &nbsp; &nbsp; &nbsp;Para fazer com que a tartaruga trace o contorno do objeto extraído, urge primeiro converter os pixels da imagem para o plano cartesiano do turtlesim e depois converter a lista de pontos do caminho em instruções de velocidade linear e angular para que a tartaruga siga a trilha. Para isso, foi necessário um longo período de estudos e testes para determinar o número de pontos identificados que melhor traça o caminho, sem fazer com que a tartaruga se perca ou dê giros desnecessários. Esse processo foi muito útil para o aprendizado pessoal e pode ser visto nas imagens abaixo:
 
+<br></br>
 
  <p align = "center">Figura 6 - Primeiro Teste </p>
 <div align = "center">
@@ -81,6 +97,7 @@ Para maiores detalhes, vale analisar o código desenvolvido, no qual foi inserid
  <sup>Fonte autoral (2026).</sup>
  </div>
 
+<br></br>
 
  <p align = "center">Figura 7 - Segundo Teste </p>
 <div align = "center">
@@ -88,6 +105,7 @@ Para maiores detalhes, vale analisar o código desenvolvido, no qual foi inserid
  <sup>Fonte autoral (2026).</sup>
  </div>
 
+<br></br>
 
 <p align = "center">Figura 8 - Terceiro Teste </p>
 <div align = "center">
@@ -95,6 +113,7 @@ Para maiores detalhes, vale analisar o código desenvolvido, no qual foi inserid
  <sup>Fonte autoral (2026).</sup>
  </div>
 
+<br></br>
 
  <p align = "center">Figura 9 - Quarto Teste </p>
 <div align = "center">
@@ -102,6 +121,7 @@ Para maiores detalhes, vale analisar o código desenvolvido, no qual foi inserid
  <sup>Fonte autoral (2026).</sup>
  </div>
 
+<br></br>
 
  <p align = "center">Figura 10 - Versão Final </p>
 <div align = "center">
@@ -109,6 +129,9 @@ Para maiores detalhes, vale analisar o código desenvolvido, no qual foi inserid
  <sup>Fonte autoral (2026).</sup>
  </div>
 
+<br></br>
+
  #### Principais Desafios Encontrados
 &nbsp; &nbsp; &nbsp; &nbsp; O principal desafio encontrado foi definir a quantidade de pontos ideal e o espaçamento ideal entre eles para permitir que a tartaruga percorresse o desenho sem se perder e sem dar muitas voltas desnecessárias.
+
 &nbsp; &nbsp; &nbsp; &nbsp;Na versão final, haja vista que "engrossei" o contorno no processo de extração, a tartaruga acaba dando mais de uma "ida" no mesmo segmento. Porém, após comparação, essa versão configou-se como a mais fiel e, portanto, a escolhida, conforme o código vigente.
