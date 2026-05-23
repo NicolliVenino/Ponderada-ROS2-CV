@@ -1,12 +1,3 @@
-"""
-dog_draw.launch.py
-==================
-Arquivo de launch que inicia o turtlesim_node e o dog_drawer_node
-em sequência, com delay para garantir que o simulador esteja pronto.
-
-Uso:
-    ros2 launch dog_drawer dog_draw.launch.py
-"""
 
 from launch import LaunchDescription
 from launch_ros.actions import Node
@@ -21,8 +12,6 @@ def generate_launch_description():
         name='turtlesim',
         output='screen',
     )
-
-    # Nó de desenho — aguarda 2s para o turtlesim inicializar
     dog_drawer_node = TimerAction(
         period=2.0,
         actions=[

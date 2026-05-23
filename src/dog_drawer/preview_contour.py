@@ -1,14 +1,3 @@
-#!/usr/bin/env python3
-"""
-preview_contour.py
-==================
-Script auxiliar (sem ROS) para visualizar os pontos mapeados
-no espaço do Turtlesim antes de executar no simulador real.
-
-Uso:
-    python3 preview_contour.py
-"""
-
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -51,7 +40,6 @@ xs, ys = pts[:, 0], pts[:, 1]
 fig, axes = plt.subplots(1, 2, figsize=(14, 7))
 fig.patch.set_facecolor('#1a1a2e')
 
-# ---- Painel esquerdo: simulação do Turtlesim ----
 ax1 = axes[0]
 ax1.set_facecolor('#0a0a1a')
 ax1.set_xlim(0, 11.09)
@@ -89,7 +77,7 @@ for i in range(0, len(CONTOUR_POINTS), 10):
 ax1.legend(loc='upper right', fontsize=9,
            facecolor='#0a0a1a', labelcolor='white', edgecolor='#444')
 
-# ---- Painel direito: estatísticas ----
+# Painel direito: estatísticas
 ax2 = axes[1]
 ax2.set_facecolor('#0a0a1a')
 ax2.set_axis_off()
@@ -104,17 +92,17 @@ for i in range(len(CONTOUR_POINTS)):
     total_len += (dx**2 + dy**2) ** 0.5
 
 info_lines = [
-    ('📐 Imagem original', '1280 × 720 px'),
-    ('🐢 Espaço Turtlesim', '0–11 × 0–11 u'),
-    ('📍 Total de pontos', f'{len(CONTOUR_POINTS)}'),
-    ('📏 Comprimento total', f'{total_len:.2f} u'),
-    ('⬅️  X mínimo', f'{xs.min():.3f}'),
-    ('➡️  X máximo', f'{xs.max():.3f}'),
-    ('⬇️  Y mínimo', f'{ys.min():.3f}'),
-    ('⬆️  Y máximo', f'{ys.max():.3f}'),
-    ('🚀 Velocidade linear', '3.0 u/s'),
-    ('🔄 Velocidade angular', '4.0 rad/s'),
-    ('🎯 Tolerância goal', '0.08 u'),
+    ('Imagem original', '1280 × 720 px'),
+    ('Espaço Turtlesim', '0–11 × 0–11 u'),
+    ('Total de pontos', f'{len(CONTOUR_POINTS)}'),
+    ('Comprimento total', f'{total_len:.2f} u'),
+    ('⬅X mínimo', f'{xs.min():.3f}'),
+    ('X máximo', f'{xs.max():.3f}'),
+    ('⬇Y mínimo', f'{ys.min():.3f}'),
+    ('⬆Y máximo', f'{ys.max():.3f}'),
+    ('Velocidade linear', '3.0 u/s'),
+    ('Velocidade angular', '4.0 rad/s'),
+    ('Tolerância goal', '0.08 u'),
 ]
 
 y_pos = 0.93
